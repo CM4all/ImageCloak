@@ -1,0 +1,18 @@
+Source: cm4all-image-cloak
+Section: admin
+Priority: extra
+Maintainer: Max Kellermann <mk@cm4all.com>
+Build-Depends: debhelper (>= 13~),
+ meson (>= 0.56),
+ g++ (>= 4:8),
+ libsodium-dev
+Standards-Version: 4.0.0
+Vcs-Browser: https://github.com/CM4all/ImageCloak
+Vcs-Git: git://github.com/CM4all/ImageCloak
+
+Package: cm4all-image-cloak
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Server image encryption framework
+ ImageCloak is a simple framework for managing encrypted server
+ images.
