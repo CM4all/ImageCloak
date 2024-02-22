@@ -1,0 +1,43 @@
+---
+on:
+  workflow_dispatch:
+  push:
+    paths-ignore:
+      - 'debian/**'
+    branches:
+      - master
+  pull_request:
+    paths-ignore:
+      - 'debian/**'
+    branches:
+      - master
+
+permissions:
+  contents: read # to fetch code (actions/checkout)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - id: cache-ccache
+        uses: hendrikmuhs/ccache-action@v1
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            meson \
+            libsodium-dev
+
+      - name: Configure
+        run: |
+          meson setup \
+            output
+
+      - name: Build
+        run: ninja -C output -v
