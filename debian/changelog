@@ -1,6 +1,6 @@
 cm4all-image-cloak (0.2) unstable; urgency=low
 
-  * 
+  * debian/control: add missing build-dependency on pkg-config
 
  --   
 

@@ -3,7 +3,7 @@ Section: admin
 Priority: extra
 Maintainer: Max Kellermann <mk@cm4all.com>
 Build-Depends: debhelper (>= 13~),
- meson (>= 0.56),
+ meson (>= 0.56), pkg-config,
  g++ (>= 4:8),
  libsodium-dev
 Standards-Version: 4.0.0
